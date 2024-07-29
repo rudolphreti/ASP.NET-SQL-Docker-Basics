@@ -1,4 +1,7 @@
-﻿namespace WebApplication2.Models;
+﻿using System;
+using System.Collections.Generic;
+
+namespace WebApplication2.Data;
 
 public partial class Person
 {
