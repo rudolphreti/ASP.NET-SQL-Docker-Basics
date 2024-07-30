@@ -11,7 +11,8 @@ This project serves as an introduction to the basics of containerization using D
 * Create a new container:
 docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=meinStarkesPasswort123!" -p 1433:1433 --name sqlserver -d mcr.microsoft.com/mssql/server:2022-latest
 
-2. Make sure you have other services that use port 1433 disabled, e.g. another SQL server. Otherwise, it will not be possible to access the database. 
+* Make sure you have other services that use port 1433 disabled, e.g. another SQL server. Otherwise, it will not be possible to access the database. 
+![SSMS-Screen](images/sqm.png)
 
 * Make a test connection in SQL Server Managment Studio. 
 ![SSMS-Screen](images/ssms.png)
