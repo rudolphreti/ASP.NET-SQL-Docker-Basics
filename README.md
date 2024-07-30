@@ -52,6 +52,6 @@ Visual Studio automates the process of running the Dockerized application. Simpl
 
 All the processes are not yet fully automated. There may be problems with connection strings, e.g. scaffolding may work from localhost. In the application, the connection string appears in TestDbContext.cs and appsettings.json. There, in turn, the ip of the container works, which can be downloaded like this:
 
-``bash
+```bash
 docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' sqlserver
 ```
