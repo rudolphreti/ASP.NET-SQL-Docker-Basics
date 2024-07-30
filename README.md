@@ -11,10 +11,10 @@ This project serves as an introduction to the basics of containerization using D
 * Create a new container:
 docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=meinStarkesPasswort123!" -p 1433:1433 --name sqlserver -d mcr.microsoft.com/mssql/server:2022-latest
 
-* Make sure you have other services that use port 1433 disabled, e.g. another SQL server. Otherwise, it will not be possible to access the database. 
+* Make sure you have other services that use port 1433 disabled, e.g. another SQL server. Otherwise, it will not be possible to access the database: 
 ![SSMS-Screen](images/sqm.png)
 
-* Make a test connection in SQL Server Managment Studio. 
+* Make a test connection in SQL Server Managment Studio: 
 ![SSMS-Screen](images/ssms.png)
 
 * Create database:
@@ -38,7 +38,7 @@ INSERT INTO Person (ID, Name) VALUES
 GO
 ```
 
-* Entity Framework scaffolding:
+* Entity Framework scaffolding in Visual Studio -> Package Manager Console:
 ```bash
 Scaffold-DbContext "Server=localhost,1433;Database=TestDB;User Id=sa;Password=meinStarkesPasswort123!;Encrypt=false;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Data -f
 ```
