@@ -43,15 +43,14 @@ GO
 Scaffold-DbContext "Server=localhost,1433;Database=TestDB;User Id=sa;Password=meinStarkesPasswort123!;Encrypt=false;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Data -f
 ```
 
-* Run with Docker Container .NET SDK
+* Running the Application:
+
+Run with Docker Container .NET SDK. Visual Studio automates the process of running the Dockerized application. Simply open the solution in Visual Studio, and it will manage the Docker containers for the application automatically.
+
 As a result, the Person table should be displayed:
 ![SSMS-Screen](images/result.png)
 
-## Running the Application
-
-Visual Studio automates the process of running the Dockerized application. Simply open the solution in Visual Studio, and it will manage the Docker containers for the application automatically.
-
-All the processes are not yet fully automated. There may be problems with connection strings, e.g. scaffolding may work from localhost. In the application, the connection string appears in TestDbContext.cs and appsettings.json. There, in turn, the ip of the container works, which can be downloaded like this:
+All the processes are not yet fully automated. There may be problems with connection strings, e.g. scaffolding may work from localhost. In the application, the connection string appears in TestDbContext.cs and appsettings.json. There, in turn, the ip of the container works, which can be get like this:
 
 ```bash
 docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' sqlserver
