@@ -5,8 +5,9 @@
 <table>
     <thead>
         <tr>
+            <th>Id</th>
             <th>Name</th>
-            <th>Alter</th>
+            
             <!-- Weitere Spalten nach Bedarf -->
         </tr>
     </thead>
@@ -14,8 +15,9 @@
         @foreach (var person in Model)
         {
             <tr>
-                <td>@person.Name</td>
                 <td>@person.Id</td>
+                <td>@person.Name</td>
+                
                 <!-- Weitere Felder nach Bedarf -->
             </tr>
         }

@@ -38,13 +38,14 @@ INSERT INTO Person (ID, Name) VALUES
 GO
 ```
 
-*
-
 * Entity Framework scaffolding:
 ```bash
 Scaffold-DbContext "Server=localhost,1433;Database=TestDB;User Id=sa;Password=meinStarkesPasswort123!;Encrypt=false;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Data -f
 ```
 
+* Run with Docker Container .NET SDK
+As a result, the Person table should be displayed:
+![SSMS-Screen](images/result.png)
 
 ## Running the Application
 
