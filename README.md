@@ -54,7 +54,7 @@ As a result, the Person table should be displayed:
 ## TO DO
 There are problems with connection strings. Entity Framework scaffolding works with localhost:
 ```bash
-Scaffold-DbContext "Server=**localhost**,1433;Database=TestDB;User Id=sa;Password=meinStarkesPasswort123!;Encrypt=false;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Data -f
+Scaffold-DbContext "Server=localhost,1433;Database=TestDB;User Id=sa;Password=meinStarkesPasswort123!;Encrypt=false;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Data -f
 ```
 
 Scaffolding generates the TestDBContext.cs file, where the connection string appears:
@@ -67,7 +67,7 @@ docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' sql
 ```
 Output could be 172.17.0.2, for example, so the connection string in TestDBContext.cs should look like this:
 ```c#
-optionsBuilder.UseSqlServer(“Server=**172.17.0.2**,1433;Database=TestDB;User Id=sa;Password=meinStarkesPasswort123!;Encrypt=false;”);
+optionsBuilder.UseSqlServer(“Server=172.17.0.2,1433;Database=TestDB;User Id=sa;Password=meinStarkesPasswort123!;Encrypt=false;”);
 ```
 Taki sam ciąg połączenia powinien być w appsettings.json”
 ```json
