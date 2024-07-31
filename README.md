@@ -69,7 +69,7 @@ Output could be 172.17.0.2, for example, so the connection string in TestDBConte
 ```c#
 optionsBuilder.UseSqlServer(“Server=172.17.0.2,1433;Database=TestDB;User Id=sa;Password=meinStarkesPasswort123!;Encrypt=false;”);
 ```
-Taki sam ciąg połączenia powinien być w appsettings.json”
+The same connection string should be in appsettings.json:
 ```json
 „ConnectionStrings": {
   „DefaultConnection": „Server=172.17.0.2,1433;Database=TestDB;User Id=sa;Password=meinStarkesPasswort123!;Encrypt=false;”
