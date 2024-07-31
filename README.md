@@ -51,7 +51,7 @@ As a result, the Person table should be displayed:
 ![SSMS-Screen](images/result.png)
 
 
-* TO DO
+## TO DO
 There are problems with connection strings. Entity Framework scaffolding works with localhost:
 ```bash
 Scaffold-DbContext "Server=**localhost**,1433;Database=TestDB;User Id=sa;Password=meinStarkesPasswort123!;Encrypt=false;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Data -f
