@@ -50,8 +50,33 @@ Run with Docker Container .NET SDK. Visual Studio automates the process of runni
 As a result, the Person table should be displayed:
 ![SSMS-Screen](images/result.png)
 
-All the processes are not yet fully automated. There may be problems with connection strings, e.g. scaffolding may work from localhost. In the application, the connection string appears in TestDbContext.cs and appsettings.json. There, in turn, the ip of the container works, which can be get like this:
 
+* TO DO
+There are problems with connection strings. Entity Framework scaffolding works with localhost:
 ```bash
+Scaffold-DbContext "Server=**localhost**,1433;Database=TestDB;User Id=sa;Password=meinStarkesPasswort123!;Encrypt=false;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Data -f
+```
+
+Scaffolding generates the TestDBContext.cs file, where the connection string appears:
+```c#
+optionsBuilder.UseSqlServer(“Server=localhost,1433;Database=TestDB;User Id=sa;Password=meinStarkesPasswort123!;Encrypt=false;”);
+```
+In order for the application to work properly, in this connection string you need to replace the "localhost" with the ip of the container, and you can get it this way:
+``bash
 docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' sqlserver
 ```
+Output could be 172.17.0.2, for example, so the connection string in TestDBContext.cs should look like this:
+```c#
+optionsBuilder.UseSqlServer(“Server=**172.17.0.2**,1433;Database=TestDB;User Id=sa;Password=meinStarkesPasswort123!;Encrypt=false;”);
+```
+Taki sam ciąg połączenia powinien być w appsettings.json”
+```json
+„ConnectionStrings": {
+  „DefaultConnection": „Server=172.17.0.2,1433;Database=TestDB;User Id=sa;Password=meinStarkesPasswort123!;Encrypt=false;”
+},
+```
+Everything would be simpler if scaffolding could be done using ip container. The question is how to do it? 
+
+
+
+
