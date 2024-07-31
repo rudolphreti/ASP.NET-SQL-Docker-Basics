@@ -62,7 +62,7 @@ Scaffolding generates the TestDBContext.cs file, where the connection string app
 optionsBuilder.UseSqlServer(“Server=localhost,1433;Database=TestDB;User Id=sa;Password=meinStarkesPasswort123!;Encrypt=false;”);
 ```
 In order for the application to work properly, in this connection string you need to replace the "localhost" with the ip of the container, and you can get it this way:
-``bash
+```bash
 docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' sqlserver
 ```
 Output could be 172.17.0.2, for example, so the connection string in TestDBContext.cs should look like this:
